@@ -5,7 +5,7 @@ Página estática, mobile-first, sem dependência de build. Basta servir a raiz.
 ## Rodar local
 
 ```bash
-node server.cjs      # http://localhost:3100
+node dev/server.cjs   # http://localhost:3100
 ```
 
 ## Estrutura
@@ -18,7 +18,8 @@ assets/
   carrossel/        fotos de produção
   bonus/            capas dos 4 bônus
   depoimentos/      prints de comentário
-server.cjs          servidor estático para preview local
+dev/server.cjs      servidor estático para preview local (ignorado no deploy)
+vercel.json         forca deploy estatico, sem build
 ```
 
 ## Pendências antes de subir tráfego
