@@ -71,20 +71,18 @@ section{padding:46px 0}
   font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.74rem;
   text-transform:uppercase;letter-spacing:.1em;line-height:1.35}
 
-/* HERO */
-.hero{background:radial-gradient(120% 90% at 50% 0%,#3D2718 0%,var(--couro) 45%,var(--couro-esc) 100%);
-  color:#F3E9DC;text-align:center;padding:40px 0 46px}
-.tagx{display:inline-block;background:rgba(224,180,118,.14);border:1px solid rgba(224,180,118,.4);
-  color:var(--caramelo-claro);font-size:.66rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:.13em;padding:7px 15px;border-radius:99px;margin-bottom:18px}
-.hero h1{font-size:2.15rem;color:#fff;margin-bottom:14px}
-.hero h1 em{font-style:normal;color:var(--caramelo)}
-.hero p{font-size:1rem;color:#CBB49E;max-width:460px;margin:0 auto}
+/* TOPO — tag, headline, subheadline e card na MESMA secao clara */
+.topo{background:var(--areia);text-align:center;padding:40px 0 54px}
+.tagx{display:inline-block;background:#fff;border:1px solid var(--urgencia);
+  color:var(--urgencia);font-size:.68rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.12em;padding:8px 18px;border-radius:99px;margin-bottom:24px}
+.topo h1{font-size:2.1rem;color:var(--couro);margin-bottom:16px;line-height:1.12}
+.topo h1 em{display:block;font-style:normal;color:var(--urgencia);font-size:2.7rem;line-height:1.02}
+.topo p.chamada{font-size:1rem;color:var(--couro-suave);max-width:470px;margin:0 auto 30px}
 
 /* CARD DA OFERTA */
-.oferta{background:var(--areia-esc)}
 .box{background:#fff;border:2px solid var(--caramelo);border-radius:20px;padding:26px 22px;
-  box-shadow:var(--sombra-fd);position:relative}
+  box-shadow:var(--sombra-fd);position:relative;text-align:left}
 .box .fita{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--caramelo-esc);
   color:#fff;font-size:.67rem;font-weight:700;padding:6px 16px;border-radius:99px;
   text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
@@ -159,18 +157,13 @@ footer{background:var(--couro-esc);color:#8A7561;text-align:center;padding:28px 
 
 <div id="aviso">Atenção: não feche esta página ou você perde o desconto</div>
 
-<!-- ================= HERO ================= -->
-<section class="hero">
+<!-- ================= TOPO + OFERTA (mesma secao) ================= -->
+<section class="topo">
   <div class="wrap">
-    <span class="tagx">Oferta exclusiva de saída</span>
-    <h1>Espera! <em>Não vá embora ainda</em></h1>
-    <p>Antes de você sair, liberamos uma condição única no pacote completo — com os 4 bônus inclusos. Só nesta página, e só agora.</p>
-  </div>
-</section>
+    <span class="tagx">⚠ Oferta exclusiva</span>
+    <h1><em>Espera!</em>Não vá embora ainda</h1>
+    <p class="chamada">Antes de você sair, liberamos uma condição única no pacote completo — com os 4 bônus inclusos. Só nesta página, e só agora.</p>
 
-<!-- ================= OFERTA ================= -->
-<section class="oferta">
-  <div class="wrap">
     <div class="box">
       <span class="fita">⚡ Só nesta página</span>
       <h2>Pacote Completo</h2>
